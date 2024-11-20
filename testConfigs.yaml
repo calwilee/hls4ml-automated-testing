@@ -1,0 +1,31 @@
+Description: "Use the arguments here to build configuration file for hls4ml conversion."
+
+#choose layer to test and conversion specs
+LAYER: 'separable_conv2d'
+RUN_HLS: True
+IO_TYPE: 'io_parallel'
+STRATEGY: 'Latency'
+BACKEND: 'Vivado'
+VERSION: '2020.1'
+TRACE: True
+#reuseFactor: [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 8, 16, 32, 32, 32]
+#parallelFactor: [1, 4, 8, 12, 16, 32, 48, 72, 144, 72, 72, 72, 48, 72, 144]
+#reuseFactor: [1, 1, 1, 1, 1, 1, 1, 2, 8, 16, 32, 64, 128 , 1 , 1 ]
+#parallelFactor: [144, 72, 48, 32, 16, 8, 4, 144, 144, 144, 144, 144, 144, 1, 4]
+reuseFactor: 1
+parallelFactor: 1
+
+
+# Model details
+Height: 12  # Input height
+Width: 12   # Input width
+Bitwidth: 14  # Fixed-point precision, word bit width
+Int_Width: 6 # Fixed-point precision, integer-part bit width
+#Bitwidth: [32, 32, 32, 32, 32, 24, 24, 24, 24, 24, 16, 16, 16, 16, 16, 10, 10, 10, 10, 8, 8, 8]
+#Int_Width: [16, 12, 8, 6, 3, 16, 12, 8, 6, 3, 16, 12, 8, 6, 3, 10, 8, 6, 3, 8, 6, 3 ]
+
+# More model details. Keeping fixed for now
+Channels: 2  # Input # of channels 
+Filter_Height: 3   # Kernel height  
+Filter_Width: 3  # Kernel width 
+Filters: 5 # Kernel # of filters 
