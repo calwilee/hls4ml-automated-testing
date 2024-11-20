@@ -1,1 +1,1 @@
-This is a repository to test Machine Learning models using hls4ml using code that automates hls conversions.
+This is a repository to test Machine Learning models using hls4ml. Some files are for running synthesis and extracting hls report information, while other files are there to help analyze such information.
