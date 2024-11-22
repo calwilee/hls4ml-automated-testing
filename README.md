@@ -1,7 +1,7 @@
 This is a repository to test Machine Learning models using hls4ml. Some files are for running synthesis and extracting hls report information, while other files are there to help analyze such information.
 
 # Instructions
-1. Install `mamba` or `micromamba`. I have [this](https://github.com/Brainz22/useful_notes/blob/main/micromamba.md) instructions I used, but they might work on the computer. If they don't work, maybe use chatGPT to resolve the issue. It is very helpful with things like this.
+1. Install `mamba` or `micromamba`. I have [these](https://github.com/Brainz22/useful_notes/blob/main/micromamba.md) instructions I used, but they might work on the computer. If they don't work, maybe use chatGPT to resolve the issue. It is very helpful with things like this.
 
 2. Create the environment using the `environment.yaml` file.
 
