@@ -1,0 +1,471 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source /data/software/xilinx/Vivado/2020.1/scripts/vivado_hls/hls.tcl -notrace
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running '/data/software/xilinx/Vivado/2020.1/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'calwinlee' on host 'mulder.t2.ucsd.edu' (Linux_x86_64 version 4.18.0-425.3.1.el8.x86_64) on Wed Mar 05 22:58:27 PST 2025
+INFO: [HLS 200-10] On os "AlmaLinux release 8.10 (Cerulean Leopard)"
+INFO: [HLS 200-10] In directory '/home/users/calwinlee/hls4ml-automated-testing/0/proj_14-6_rf_1_pf_4_InH8_InW8/qkmodel'
+Sourcing Tcl script 'build_prj.tcl'
+INFO: [HLS 200-10] Opening project '/home/users/calwinlee/hls4ml-automated-testing/0/proj_14-6_rf_1_pf_4_InH8_InW8/qkmodel/myproject_prj'.
+INFO: [HLS 200-10] Adding design file 'firmware/myproject.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'myproject_test.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'firmware/weights' to the project
+INFO: [HLS 200-10] Adding test bench file 'tb_data' to the project
+INFO: [HLS 200-10] Opening solution '/home/users/calwinlee/hls4ml-automated-testing/0/proj_14-6_rf_1_pf_4_InH8_InW8/qkmodel/myproject_prj/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.625ns.
+INFO: [HLS 200-10] Setting target device to 'xcu250-figd2104-2L-e'
+INFO: [XFORM 203-101] Allowed max sub elements number after partition is 4096.
+INFO: [XFORM 203-1161] The maximum of name length is set into 80.
+INFO: [XFORM 203-101] Allowed max sub elements number after partition is 4096.
+INFO: [XFORM 203-1161] The maximum of name length is set into 80.
+***** C/RTL SYNTHESIS *****
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'firmware/myproject.cpp' ... 
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:38:105
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:38:109
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:42:136
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:42:140
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:45:97
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: firmware/myproject.cpp:45:101
+WARNING: [HLS 200-471] Dataflow form checks found 6 issue(s) in file firmware/myproject.cpp
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1869.238 ; gain = 1233.949 ; free physical = 49657 ; free virtual = 128079
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1869.238 ; gain = 1233.949 ; free physical = 49657 ; free virtual = 128079
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'nnet::product::mult<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> >::product' into 'nnet::depthwise_conv_2d_latency_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' (firmware/nnet_utils/nnet_sepconv2d_latency.h:56).
+INFO: [XFORM 203-603] Inlining function 'nnet::depthwise_conv_2d_latency_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' into 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' (firmware/nnet_utils/nnet_sepconv2d.h:20).
+INFO: [XFORM 203-603] Inlining function 'nnet::fill_buffer_7<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>::fill_buffer' into 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' (firmware/nnet_utils/nnet_sepconv2d_latency.h:42->firmware/nnet_utils/nnet_sepconv2d.h:20).
+INFO: [XFORM 203-603] Inlining function 'nnet::cast<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7_mult>' into 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' (firmware/nnet_utils/nnet_sepconv2d_latency.h:82->firmware/nnet_utils/nnet_sepconv2d.h:20).
+INFO: [XFORM 203-603] Inlining function 'nnet::product::mult<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> >::product' into 'nnet::conv_2d_latency_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' (firmware/nnet_utils/nnet_conv2d_latency.h:55).
+INFO: [XFORM 203-603] Inlining function 'nnet::conv_2d_latency_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' into 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' (firmware/nnet_utils/nnet_conv2d.h:67).
+INFO: [XFORM 203-603] Inlining function 'nnet::product::mult<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> >::product' into 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' (firmware/nnet_utils/nnet_dense_latency.h:42).
+INFO: [XFORM 203-603] Inlining function 'nnet::DenseLatency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>::dense' into 'nnet::dense<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' (firmware/nnet_utils/nnet_dense.h:45).
+INFO: [XFORM 203-603] Inlining function 'nnet::dense<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' into 'myproject' (firmware/myproject.cpp:45).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1869.238 ; gain = 1233.949 ; free physical = 49644 ; free virtual = 128066
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'nnet::cast<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9_mult>' into 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' (firmware/nnet_utils/nnet_conv2d_latency.h:82->firmware/nnet_utils/nnet_conv2d.h:67) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::cast<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' into 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' (firmware/nnet_utils/nnet_dense_latency.h:66) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1869.238 ; gain = 1233.949 ; free physical = 49640 ; free virtual = 128061
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' (firmware/nnet_utils/nnet_dense_latency.h:17:48).
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'PartitionLoop' (firmware/nnet_utils/nnet_conv2d_latency.h:35) in function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'PartitionLoop' (firmware/nnet_utils/nnet_sepconv2d_latency.h:39) in function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (firmware/nnet_utils/nnet_dense_latency.h:37) in function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' completely with a factor of 180.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (firmware/nnet_utils/nnet_dense_latency.h:40) in function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (firmware/nnet_utils/nnet_dense_latency.h:48) in function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (firmware/nnet_utils/nnet_dense_latency.h:54) in function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' completely with a factor of 180.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (firmware/nnet_utils/nnet_dense_latency.h:56) in function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Result' (firmware/nnet_utils/nnet_dense_latency.h:64) in function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'PixelLoop' (firmware/nnet_utils/nnet_conv2d_latency.h:41) in function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (firmware/nnet_utils/nnet_conv2d_latency.h:48) in function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (firmware/nnet_utils/nnet_conv2d_latency.h:52) in function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (firmware/nnet_utils/nnet_conv2d_latency.h:62) in function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (firmware/nnet_utils/nnet_conv2d_latency.h:69) in function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (firmware/nnet_utils/nnet_conv2d_latency.h:72) in function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Result' (firmware/nnet_utils/nnet_conv2d_latency.h:80) in function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'PixelLoop' (firmware/nnet_utils/nnet_sepconv2d_latency.h:45) in function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Product' (firmware/nnet_utils/nnet_sepconv2d_latency.h:52) in function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 18.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (firmware/nnet_utils/nnet_sepconv2d_latency.h:62) in function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (firmware/nnet_utils/nnet_sepconv2d_latency.h:69) in function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 9.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (firmware/nnet_utils/nnet_sepconv2d_latency.h:72) in function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Result' (firmware/nnet_utils/nnet_sepconv2d_latency.h:80) in function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 2.
+INFO: [XFORM 203-131] Reshaping array 'input_1.V' (firmware/myproject.cpp:8) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer5_out.V' (firmware/myproject.cpp:9) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer7_out.V' (firmware/myproject.cpp:36) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'layer8_out.V' (firmware/myproject.cpp:40) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_buf.i'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mult.V' (firmware/nnet_utils/nnet_sepconv2d_latency.h:24) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_sepconv2d_latency.h:27) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'w7.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'b7.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'b5.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mult.V' (firmware/nnet_utils/nnet_dense_latency.h:17) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_dense_latency.h:18) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_buf.i'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'mult.V' (firmware/nnet_utils/nnet_conv2d_latency.h:22) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (firmware/nnet_utils/nnet_conv2d_latency.h:25) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'w8.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'b8.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_buf.i'  in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'data_buf.i'  in dimension 2 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'layer7_out.V' (firmware/myproject.cpp:36) accessed through non-constant indices on dimension 1, which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+WARNING: [XFORM 203-104] Completely partitioning array 'layer8_out.V' (firmware/myproject.cpp:40) accessed through non-constant indices on dimension 1, which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-602] Inlining function 'nnet::fill_buffer_9<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>::fill_buffer' into 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' (firmware/nnet_utils/nnet_conv2d_latency.h:38->firmware/nnet_utils/nnet_conv2d.h:67) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::cast<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9_mult>' into 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' (firmware/nnet_utils/nnet_conv2d_latency.h:82->firmware/nnet_utils/nnet_conv2d.h:67) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::cast<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' into 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>' (firmware/nnet_utils/nnet_dense_latency.h:66) automatically.
+INFO: [XFORM 203-622] Instantiating function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>'(firmware/nnet_utils/nnet_dense_latency.h:26:27) to 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>.0' at call site (firmware/nnet_utils/nnet_dense.h:54->firmware/nnet_utils/nnet_dense.h:45->firmware/myproject.cpp:45) by setting 'weights.V' to 'w5.V'.
+INFO: [XFORM 203-622] Instantiating function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>.0'(firmware/nnet_utils/nnet_dense_latency.h:26:27) to 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>.0.0' at call site (firmware/nnet_utils/nnet_dense.h:54->firmware/nnet_utils/nnet_dense.h:45->firmware/myproject.cpp:45) by setting 'biases[0].V' to 'b5.V.0'.
+INFO: [XFORM 203-622] Instantiating function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>.0.0'(firmware/nnet_utils/nnet_dense_latency.h:26:27) to 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>.0.0.0' at call site (firmware/nnet_utils/nnet_dense.h:54->firmware/nnet_utils/nnet_dense.h:45->firmware/myproject.cpp:45) by setting 'biases[1].V' to 'b5.V.1'.
+INFO: [XFORM 203-712] Applying dataflow to function 'myproject', detected/extracted 3 process function(s): 
+	 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>'
+	 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>'
+	 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>.0.0.0'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (firmware/nnet_utils/nnet_sepconv2d_latency.h:39:70) to (firmware/nnet_utils/nnet_sepconv2d_latency.h:82:13) in function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>'... converting 19 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' (firmware/nnet_utils/nnet_conv2d_latency.h:32:59)...14 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' (firmware/nnet_utils/nnet_sepconv2d_latency.h:24:59)...64 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>.0.0.0' (firmware/nnet_utils/nnet_dense_latency.h:26:27)...358 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 1869.238 ; gain = 1233.949 ; free physical = 49543 ; free virtual = 127965
+WARNING: [XFORM 203-631] Renaming function 'nnet::pointwise_conv_2d_cl<ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>' to 'pointwise_conv_2d_cl<ap_fixed,ap_fixed<53,25,5,3,0>,config9>' (firmware/nnet_utils/nnet_conv2d_latency.h:32:59)
+WARNING: [XFORM 203-631] Renaming function 'nnet::depthwise_conv_2d_cl<ap_fixed<14, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<35, 17, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' to 'depthwise_conv_2d_cl<ap_fixed,ap_fixed<35,17,5,3,0>,config7>' (firmware/nnet_utils/nnet_code_gen.h:14:9)
+WARNING: [XFORM 203-631] Renaming function 'nnet::dense_latency<ap_fixed<53, 25, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<78, 40, (ap_q_mode)5, (ap_o_mode)3, 0>, config5>.0.0.0' to 'dense_latency<ap_fixed,ap_fixed<78,40,5,3,0>,config5>.0.0.0' (firmware/nnet_utils/nnet_mult.h:26:9)
+INFO: [XFORM 203-531] Rewinding loop 'PartitionLoop' (firmware/nnet_utils/nnet_conv2d_latency.h:35) in function 'pointwise_conv_2d_cl<ap_fixed,ap_fixed<53,25,5,3,0>,config9>'.
+INFO: [XFORM 203-531] Rewinding loop 'PartitionLoop' (firmware/nnet_utils/nnet_sepconv2d_latency.h:39) in function 'depthwise_conv_2d_cl<ap_fixed,ap_fixed<35,17,5,3,0>,config7>'.
+WARNING: [XFORM 203-561] Ignored multiple trip count directives for loop 'PartitionLoop' in function 'pointwise_conv_2d_cl<ap_fixed,ap_fixed<53,25,5,3,0>,config9>'.
+WARNING: [XFORM 203-561] Ignored multiple trip count directives for loop 'PartitionLoop' in function 'depthwise_conv_2d_cl<ap_fixed,ap_fixed<35,17,5,3,0>,config7>'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 1869.238 ; gain = 1233.949 ; free physical = 49379 ; free virtual = 127801
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'myproject' ...
+WARNING: [SYN 201-103] Legalizing function name 'depthwise_conv_2d_cl<ap_fixed,ap_fixed<35,17,5,3,0>,config7>' to 'depthwise_conv_2d_cl_ap_fixed_ap_fixed_35_17_5_3_0_config7_s'.
+WARNING: [SYN 201-103] Legalizing function name 'pointwise_conv_2d_cl<ap_fixed,ap_fixed<53,25,5,3,0>,config9>' to 'pointwise_conv_2d_cl_ap_fixed_ap_fixed_53_25_5_3_0_config9_s'.
+WARNING: [SYN 201-103] Legalizing function name 'dense_latency<ap_fixed,ap_fixed<78,40,5,3,0>,config5>.0.0.0' to 'dense_latency_ap_fixed_ap_fixed_78_40_5_3_0_config5_0_0_0'.
+WARNING: [SYN 201-223] Checking resource limit in 'depthwise_conv_2d_cl<ap_fixed,ap_fixed<35,17,5,3,0>,config7>': cannot find any operation of 'mul'.
+WARNING: [SYN 201-223] Checking resource limit in 'pointwise_conv_2d_cl<ap_fixed,ap_fixed<53,25,5,3,0>,config9>': cannot find any operation of 'mul'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'depthwise_conv_2d_cl_ap_fixed_ap_fixed_35_17_5_3_0_config7_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PartitionLoop'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 77.05 seconds; current allocated memory: 423.899 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 2.07 seconds; current allocated memory: 444.921 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pointwise_conv_2d_cl_ap_fixed_ap_fixed_53_25_5_3_0_config9_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PartitionLoop'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 25.19 seconds; current allocated memory: 454.803 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 3.15 seconds; current allocated memory: 532.526 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dense_latency_ap_fixed_ap_fixed_78_40_5_3_0_config5_0_0_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'dense_latency<ap_fixed,ap_fixed<78,40,5,3,0>,config5>.0.0.0'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.01 seconds; current allocated memory: 539.312 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Starting global binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 3.45 seconds; current allocated memory: 554.065 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'myproject' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 3.03 seconds; current allocated memory: 555.299 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.9 seconds; current allocated memory: 557.944 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'depthwise_conv_2d_cl_ap_fixed_ap_fixed_35_17_5_3_0_config7_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'myproject_mux_1287_1_1_1': 72 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'myproject_mux_1287_24_1_1': 72 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'depthwise_conv_2d_cl_ap_fixed_ap_fixed_35_17_5_3_0_config7_s'.
+INFO: [HLS 200-111]  Elapsed time: 4.35 seconds; current allocated memory: 638.652 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pointwise_conv_2d_cl_ap_fixed_ap_fixed_53_25_5_3_0_config9_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-104] Estimated max fanout for 'pointwise_conv_2d_cl_ap_fixed_ap_fixed_53_25_5_3_0_config9_s' is 12243 from HDL expression: (~((ap_start == 1'b0) | (ap_done_reg == 1'b1)) & (icmp_ln162_fu_6525_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))
+INFO: [RTGEN 206-100] Generating core module 'myproject_mux_2568_1_1_1': 180 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'myproject_mux_2568_34_1_1': 180 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pointwise_conv_2d_cl_ap_fixed_ap_fixed_53_25_5_3_0_config9_s'.
+INFO: [HLS 200-111]  Elapsed time: 13.33 seconds; current allocated memory: 1.064 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dense_latency_ap_fixed_ap_fixed_78_40_5_3_0_config5_0_0_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-104] Estimated max fanout for 'dense_latency_ap_fixed_ap_fixed_78_40_5_3_0_config5_0_0_0' is 21182 from HDL expression: ((1'b0 == ap_block_pp0_stage0) & (ap_start == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dense_latency_ap_fixed_ap_fixed_78_40_5_3_0_config5_0_0_0'.
+INFO: [HLS 200-111]  Elapsed time: 6.25 seconds; current allocated memory: 1.207 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'myproject' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/input_1_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer5_out_0_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'myproject/layer5_out_1_V' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'myproject' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'myproject'.
+INFO: [HLS 200-111]  Elapsed time: 7.59 seconds; current allocated memory: 1.250 GB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 241.55 MHz
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_0_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_1_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_2_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_3_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_4_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_5_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_6_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_7_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_8_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_9_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_10_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_11_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_12_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_13_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_14_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_15_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_16_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_17_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_18_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_19_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_20_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_21_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_22_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_23_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_24_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_25_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_26_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_27_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_28_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_29_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_30_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_31_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_32_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_33_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_34_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_35_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_36_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_37_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_38_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_39_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_40_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_41_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_42_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_43_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_44_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_45_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_46_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_47_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_48_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_49_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_50_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_51_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_52_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_53_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_54_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_55_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_56_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_57_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_58_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_59_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_60_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_61_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_62_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_63_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_64_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_65_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_66_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_67_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_68_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_69_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_70_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer7_out_71_V_U(fifo_w24_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_0_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_1_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_2_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_3_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_4_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_5_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_6_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_7_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_8_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_9_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_10_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_11_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_12_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_13_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_14_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_15_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_16_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_17_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_18_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_19_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_20_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_21_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_22_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_23_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_24_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_25_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_26_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_27_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_28_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_29_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_30_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_31_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_32_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_33_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_34_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_35_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_36_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_37_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_38_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_39_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_40_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_41_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_42_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_43_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_44_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_45_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_46_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_47_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_48_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_49_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_50_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_51_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_52_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_53_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_54_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_55_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_56_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_57_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_58_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_59_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_60_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_61_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_62_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_63_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_64_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_65_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_66_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_67_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_68_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_69_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_70_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_71_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_72_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_73_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_74_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_75_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_76_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_77_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_78_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_79_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_80_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_81_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_82_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_83_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_84_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_85_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_86_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_87_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_88_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_89_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_90_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_91_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_92_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_93_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_94_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_95_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_96_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_97_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_98_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_99_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_100_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_101_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_102_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_103_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_104_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_105_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_106_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_107_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_108_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_109_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_110_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_111_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_112_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_113_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_114_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_115_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_116_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_117_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_118_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_119_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_120_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_121_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_122_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_123_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_124_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_125_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_126_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_127_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_128_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_129_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_130_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_131_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_132_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_133_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_134_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_135_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_136_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_137_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_138_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_139_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_140_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_141_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_142_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_143_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_144_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_145_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_146_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_147_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_148_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_149_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_150_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_151_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_152_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_153_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_154_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_155_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_156_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_157_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_158_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_159_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_160_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_161_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_162_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_163_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_164_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_165_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_166_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_167_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_168_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_169_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_170_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_171_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_172_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_173_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_174_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_175_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_176_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_177_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_178_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer8_out_179_V_U(fifo_w34_d2_A)' using Shift Registers.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:02:28 ; elapsed = 00:03:00 . Memory (MB): peak = 2450.082 ; gain = 1814.793 ; free physical = 48448 ; free virtual = 126896
+INFO: [VHDL 208-304] Generating VHDL RTL for myproject.
+INFO: [VLOG 209-307] Generating Verilog RTL for myproject.
+***** C/RTL SYNTHESIS COMPLETED IN 0h2m57s *****
+INFO: [HLS 200-112] Total elapsed time: 180.64 seconds; peak allocated memory: 1.250 GB.
+INFO: [Common 17-206] Exiting vivado_hls at Wed Mar  5 23:01:28 2025...

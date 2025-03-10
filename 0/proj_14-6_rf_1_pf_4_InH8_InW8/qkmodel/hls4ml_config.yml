@@ -1,0 +1,72 @@
+Backend: Vivado
+ClockPeriod: 5
+ClockUncertainty: 12.5%
+HLSConfig:
+  LayerName:
+    dense:
+      Precision:
+        bias: auto
+        result: auto
+        weight: auto
+      Trace: false
+    dense_linear:
+      Precision:
+        result: auto
+      Trace: false
+    flatten:
+      Precision:
+        result: auto
+      Trace: false
+    input_1:
+      Precision:
+        result: fixed<14,6>
+      Trace: false
+    separable_conv2d:
+      ParallelizationFactor: 4
+      Precision:
+        bias: auto
+        depthwise: auto
+        pointwise: auto
+        result: auto
+      ReuseFactor: 1
+      Trace: false
+    separable_conv2d_depthwise:
+      ParallelizationFactor: 4
+      Precision:
+        bias: auto
+        result: auto
+        weight: auto
+      ReuseFactor: 1
+      Trace: false
+    separable_conv2d_linear:
+      Precision:
+        result: auto
+      Trace: false
+    separable_conv2d_pointwise:
+      ParallelizationFactor: 4
+      Precision:
+        bias: auto
+        result: auto
+        weight: auto
+      ReuseFactor: 1
+      Trace: false
+  Model:
+    BramFactor: 1000000000
+    Precision:
+      default: fixed<16,6>
+    ReuseFactor: 1
+    Strategy: Latency
+    TraceOutput: false
+IOType: io_parallel
+InputData: null
+KerasModel: !keras_model '0/proj_14-6_rf_1_pf_4_InH8_InW8/qkmodel/keras_model.keras'
+OutputDir: 0/proj_14-6_rf_1_pf_4_InH8_InW8/qkmodel
+OutputPredictions: null
+Part: xcu250-figd2104-2L-e
+ProjectName: myproject
+Stamp: 09b79d52
+Version: 1.0.0
+WriterConfig:
+  Namespace: null
+  WriteTar: false
+  WriteWeightsTxt: true
