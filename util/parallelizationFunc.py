@@ -46,7 +46,7 @@ def loop_parallelization(config, specsDict, test, outdir, kmodel, x_train):
         
         hls_kmodel = 0
         report = 0
-        outdir = 0
+        outdir = outdir
         
         output_dir= f'{outdir}/proj_{FXD_W}-{FXD_I}_rf_{rf}_pf_{pf}_InH{H}_InW{W}/qkmodel'
 
@@ -110,7 +110,7 @@ def loop_parallelization(config, specsDict, test, outdir, kmodel, x_train):
         ctime.append(comp_time)
         stime.append(syn_time)
         print("---------------------------------")
-        print(" \n Reading report from " + outdir + "\n" )
+        print(" \n Reading report from " + str(outdir) + "\n" )
         print("Accessing memory at: ", id(report))
         memAddress.append(id(report))
         print("---------------------------------")

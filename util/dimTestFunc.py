@@ -5,8 +5,11 @@ import hls4ml.model.profiling
 import time
 import matplotlib.pyplot as plt
 import numpy as np
+from util.createKerasModel import createKerasModel
+import tensorflow as tf
 
-def dimTestFunc(config, specsDict, test, outdir, kmodel, X_train):
+
+def dimTestFunc(config, specsDict, test, outdir, X_train):
 
     LAYER = specsDict['LAYER'] # uses both depthwise and pointwise
     RUN_HLS = specsDict['RUN_HLS']
@@ -46,6 +49,28 @@ def dimTestFunc(config, specsDict, test, outdir, kmodel, X_train):
                 #  stop loop once report is not found, i.e. synth == "FAILED".
 
         while True: # width loop
+            kmodel = createKerasModel(LAYER, input_shape=(i,j,Din), kernel_size=(Fh, Fw), filters=Dout)
+
+            X_train = np.random.rand(10,i,j,Din)  
+            y_train = np.random.randint(2, size=(10,))
+
+            #Compile model
+            kmodel.compile(loss="binary_crossentropy", optimizer=tf.keras.optimizers.Adam(
+                learning_rate=0.001), metrics=["binary_accuracy"])
+            
+            callback = tf.keras.callbacks.EarlyStopping(monitor="val_loss", verbose=1, patience=100)
+
+            #Train
+            history=kmodel.fit(
+                X_train,
+                y_train,
+                epochs=50,
+                batch_size=50,
+                verbose=2,
+                #sample_weight=np.asarray(weights),
+                validation_split=0.20,
+                callbacks=[callback],
+            )
 
             hls_kmodel = 0
             report = 0 
@@ -63,11 +88,11 @@ def dimTestFunc(config, specsDict, test, outdir, kmodel, X_train):
             config['LayerName']['separable_conv2d']['ParallelizationFactor'] = parallelFactor
             
 
-            outpur_dir =f'{outdir}/proj_{FXD_W}-{FXD_I}_rf_{reuseFactor}_pf_{parallelFactor}_InH{i}_InW{j}/qkmodel'
-
+            outpur_dir =f'{outdir}/{FXD_W}-{FXD_I}_rf_{reuseFactor}_pf_{parallelFactor}_InH{i}_InW{j}/qkmodel'
+            print('path:   ' +  outpur_dir)
             if TRACE: #Activate Layer tracing
                 for layer in config['LayerName'].keys():
-                    #print('Enable tracing for layer:', layer)
+                    print('Enable tracing for layer:', layer)
                     config['LayerName'][layer]['Trace'] = True
 
             hls_kmodel = hls4ml.converters.convert_from_keras_model(
@@ -162,12 +187,12 @@ def dimTestFunc(config, specsDict, test, outdir, kmodel, X_train):
                 i += 1 #go up one step in height since we wanna break width loop
                 break # Means that report was not found, i.e. synth == "FAILED" 
 
-            if l == W+20:
+            if l == W+40:
                 i += 1
                 break # break if width loop has reached too many
 
         n += 1  # We went up 1 step in height 
-        if n == 20: 
+        if n == 40: 
             break #break if heigth loop has reached too many 
 
 
